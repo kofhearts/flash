@@ -1,4 +1,5 @@
 #!/bin/bash
 target=$1
-path=$2
-waybackurls $target > $path/endpoints
+output=$2
+waybackurls $target > $output/endpoints
+python3 ~/tools/ParamSpider/paramspider.py  -d $target -l high -o $output/params  --exclude woff,css,js,png,svg,php,jpg;

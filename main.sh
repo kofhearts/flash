@@ -63,3 +63,16 @@ echo "Hunting Vulnerability on Patterns";
 mkdir $target/vulnerability
 ./huntonpattern.sh $target/patternsearch $target/vulnerability
 
+echo "Searching Directory"
+mkdir $target/directory
+./bruteforcer.sh $target/subdomains $target/directory
+
+
+echo "Hunt for XSS";
+mkdir $target/XSS
+./huntXSS.sh $target/endpoints $target/XSS
+
+
+echo "Screenshot Live Subdomains";
+mkdir $target/screenshot
+./screenshooter.sh $target/endpoints $target/screenshot
