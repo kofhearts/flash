@@ -34,3 +34,28 @@ else
 fi
 
 
+echo "Starting Template Scan";
+if [[ -f $target/subdomains/live_subdomains ]]
+then
+  mkdir $target/templatescan
+  ./templatescan.sh $target/subdomains $target/templatescan
+else
+  echo "Error: No live subdomains";
+  exit
+fi
+
+echo "Searching Endpoints using Wayback machine";
+mkdir $target/endpoints
+./endpoints.sh $target $target/endpoints
+
+echo "GF pattern search"
+if [[ -f $target/endpoints/endpoints ]]
+then
+  mkdir $target/patternsearch
+  ./patternsearch.sh $target/endpoints $target/patternsearch
+else
+  echo "Error: No Endpoints";
+  exit
+fi
+
+
