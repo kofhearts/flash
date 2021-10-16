@@ -59,3 +59,7 @@ else
 fi
 
 
+echo "Hunting Vulnerability on Patterns";
+mkdir $target/vulnerability
+./huntonpattern.sh $target/patternsearch $target/vulnerability
+
