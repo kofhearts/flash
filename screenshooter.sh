@@ -3,5 +3,5 @@
 path=$1
 output=$2
 
-eyewitness -f $path/live_subdomains -d screenshot --web --timeout 15
-mv /usr/share/eyewitness/screenshot $output
+eyewitness -d $output --web -f $path/live_subdomains --no-prompt
+
