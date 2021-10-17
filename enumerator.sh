@@ -6,8 +6,8 @@ if [[ -d $path ]]
 then
   subfinder -d $target > $path/subfinder
   echo $target >> $path/subfinder
-#  assetfinder -subs-only $target > $path/assetfinder
- # amass enum --passive -d $target > $path/amass
+  assetfinder -subs-only $target > $path/assetfinder
+  amass enum --passive -d $target > $path/amass
 else
   echo "Error: Directory doesn't exists!"
   exit

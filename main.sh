@@ -75,4 +75,4 @@ mkdir $target/XSS
 
 echo "Screenshot Live Subdomains";
 mkdir $target/screenshot
-./screenshooter.sh $target/endpoints $target/screenshot
+./screenshooter.sh $target/subdomains $target/screenshot
