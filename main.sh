@@ -3,7 +3,41 @@
 
 target=$1;
 
-echo "Starting Flash";
+echo "
+███████╗██╗░░░░░░█████╗░░██████╗██╗░░██╗
+██╔════╝██║░░░░░██╔══██╗██╔════╝██║░░██║
+█████╗░░██║░░░░░███████║╚█████╗░███████║
+██╔══╝░░██║░░░░░██╔══██║░╚═══██╗██╔══██║
+██║░░░░░███████╗██║░░██║██████╔╝██║░░██║
+╚═╝░░░░░╚══════╝╚═╝░░╚═╝╚═════╝░╚═╝░░╚═╝
+
+░█████╗░██╗░░░██╗████████╗░█████╗░███╗░░░███╗░█████╗░████████╗██╗░█████╗░███╗░░██╗
+██╔══██╗██║░░░██║╚══██╔══╝██╔══██╗████╗░████║██╔══██╗╚══██╔══╝██║██╔══██╗████╗░██║
+███████║██║░░░██║░░░██║░░░██║░░██║██╔████╔██║███████║░░░██║░░░██║██║░░██║██╔██╗██║
+██╔══██║██║░░░██║░░░██║░░░██║░░██║██║╚██╔╝██║██╔══██║░░░██║░░░██║██║░░██║██║╚████║
+██║░░██║╚██████╔╝░░░██║░░░╚█████╔╝██║░╚═╝░██║██║░░██║░░░██║░░░██║╚█████╔╝██║░╚███║
+╚═╝░░╚═╝░╚═════╝░░░░╚═╝░░░░╚════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝";
+
+echo "========================================================================";
+
+progress-bar() {
+  local duration=${1}
+
+
+    already_done() { for ((done=0; done<$elapsed; done++)); do printf "▇"; done }
+    remaining() { for ((remain=$elapsed; remain<$duration; remain++)); do printf " "; done }
+    percentage() { printf "| %s%%" $(( (($elapsed)*100)/($duration)*100/100 )); }
+    clean_line() { printf "\r"; }
+
+  for (( elapsed=1; elapsed<=$duration; elapsed++ )); do
+      already_done; remaining; percentage
+      sleep 1
+      clean_line
+  done
+  clean_line
+}
+
+progress-bar 10
 
 if [[ ! -d $target ]]
 then
@@ -14,7 +48,8 @@ else
    exit 
 fi
 
-echo "Starting Subdomain enumeration";
+echo "Enumerating Subdomain";
+
 if [[ ! -d $target/subdomains ]]
 then
   mkdir $target/subdomains
@@ -25,7 +60,7 @@ else
 fi
 
 
-echo "Starting Prober";
+echo "Probing for Live Subdomains";
 if [[ -f $target/subdomains/final_subdomains ]]
 then
   ./prober.sh $target/subdomains
@@ -34,7 +69,7 @@ else
 fi
 
 
-echo "Starting Template Scan";
+echo "Template Scan";
 if [[ -f $target/subdomains/live_subdomains ]]
 then
   mkdir $target/templatescan
@@ -44,11 +79,12 @@ else
   exit
 fi
 
-echo "Searching Endpoints using Wayback machine";
+echo "Wayback Endpoint";
 mkdir $target/endpoints
 ./endpoints.sh $target $target/endpoints
 
-echo "GF pattern search"
+
+echo "GF Pattern on Endpoints";
 if [[ -f $target/endpoints/endpoints ]]
 then
   mkdir $target/patternsearch
@@ -59,11 +95,11 @@ else
 fi
 
 
-echo "Hunting Vulnerability on Patterns";
+echo "Vulnerability Scan on Pattern";
 mkdir $target/vulnerability
 ./huntonpattern.sh $target/patternsearch $target/vulnerability
 
-echo "Searching Directory"
+echo "Searching Directory";
 mkdir $target/directory
 ./bruteforcer.sh $target/subdomains $target/directory
 
