@@ -1,5 +1,10 @@
 # FLASH - Web Application Penetration Testing and Reconnaisance Automation #
 
+### Usage ###
+Run the autoDownloader script to install all the necessary tools. 
+
+Run main.sh with domain name: ./main.sh example.com
+
 ### Credits ###
 
 The creators of the FLASH script do not take credit for any of the tools used and reserve no rights over the script. 
