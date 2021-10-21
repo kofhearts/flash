@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Look for open redirect and xss on the sorted list that was generated via pattern
 path=$1
 output=$2
 
