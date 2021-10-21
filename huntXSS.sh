@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Hunt for XSS using dalfox on the parameters gathered
 path=$1
 output=$2
 
