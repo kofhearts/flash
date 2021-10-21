@@ -1,4 +1,6 @@
 #! /bin/sh
+#Downloading and Installing Required Tools for the automation script.
+
 echo "Download and Install Go!";
 wget https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
 tar -xzvf go1.17.2.linux-amd64.tar.gz
