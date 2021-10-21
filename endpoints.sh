@@ -1,4 +1,5 @@
 #!/bin/bash
+#Gather Endpoints via wayback machine and paramspider
 target=$1
 output=$2
 waybackurls $target > $output/endpoints
