@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Screenshot all the subdomains discovered
 path=$1
 output=$2
 
