@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#List of files generated and where it can be found
 target=$1
 
 echo -e "File\t\t\t\t\tFilePath";
