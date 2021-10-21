@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# Use Gf patterns to sort out endpoints by possible xss, sqli and open redirect.
 path=$1
 output=$2
 
