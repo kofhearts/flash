@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Enumerate Subdomains, remove duplicates, sort to a new list
 target=$1;
 path=$2;
 if [[ -d $path ]]
