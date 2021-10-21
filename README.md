@@ -15,7 +15,7 @@ Altogether you will have two folders tools(empty directory) and flash (scripts)
 
 Copy the autoDownloader.sh from the flash folder to the tools.
 
-_cp flash/autoDownloader.sh tools/
+_cp flash/autoDownloader.sh tools/_
 
 Run the autoDownloader.sh which is found inside the tool directory to install all the necessary tools.
 
