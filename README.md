@@ -4,12 +4,21 @@
 The user needs to have git installed in the system.
 
 ### Usage ###
-Run the autoDownloader.sh which is found inside the tool directory to install all the necessary tools.
 
+_git clone https://github.com/kofhearts/flash.git_
+
+In the same path make a new folder to keep tools.
+_mkdir tools_
+
+Altogether you will have two folders tools(empty directory) and flash (scripts)
+
+Copy the autoDownloader.sh from the flash folder to the tools.
+_cp flash/autoDownloader.sh tools/
+
+Run the autoDownloader.sh which is found inside the tool directory to install all the necessary tools.
 _./autoDownloader.sh_
 
 Run main.sh with domain name.
-
 _./main.sh example.com_
 
 ### Credits ###
