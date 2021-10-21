@@ -1,9 +1,16 @@
 # FLASH - Web Application Penetration Testing and Reconnaisance Automation #
 
-### Usage ###
-Run the autoDownloader script to install all the necessary tools. 
+### Prerequisite ###
+The user needs to have git installed in the system.
 
-Run main.sh with domain name: ./main.sh example.com
+### Usage ###
+Run the autoDownloader.sh which is found inside the tool directory to install all the necessary tools.
+
+_./autoDownloader.sh_
+
+Run main.sh with domain name.
+
+_./main.sh example.com_
 
 ### Credits ###
 
